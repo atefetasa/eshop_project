@@ -1,0 +1,24 @@
+{% load render_partial %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{% block title %}{% endblock %}</title>
+    {% include 'shared/header_references.html' %}
+</head><!--/head-->
+
+<body>
+    <!--we have used the name chosen for the url in urls.py-->
+    <!--این یک روش استفاده از django render partial  است که از روش آدرس دهی استفاده کردیم روش دیگری هم هست که امنیت بیشتری دارد-->
+    <!-- برای استفاده از روش دوم آن ویویی که برای نمایش هدر در views.py نوشتیم را مستقیما به جای آدرس داخل کوتیشن مینویسیم-->
+    {% render_partial 'home_module.views.site_header_partial' %}
+    {% block content %}
+    {% endblock %}
+    {% render_partial 'home_module.views.site_footer_partial' %}
+    {% include 'shared/footer_references.html' %}
+</body>
+</html>
