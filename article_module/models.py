@@ -1,4 +1,5 @@
 from django.db import models
+from account_module.models import User
 
 
 class ArticleCategory(models.Model):
@@ -23,6 +24,7 @@ class Article(models.Model):
     text = models.TextField(verbose_name='متن مقاله')
     is_active = models.BooleanField(default=True, verbose_name='فعال/ غیرفعال')
     selected_categories = models.ManyToManyField(ArticleCategory, verbose_name='دسته بندی ها')
+    auther = models.ForeignKey(User, verbose_name='نویسنده', on_delete=models.CASCADE, null=True, editable=False)
 
     def __str__(self):
         return self.title

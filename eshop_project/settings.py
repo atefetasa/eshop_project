@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'contact_module',
     'site_module',
     'article_module',
-    'django_render_partial'
+    'django_render_partial',
+    'sorl.thumbnail'
 ]
 
 MIDDLEWARE = [
@@ -84,8 +85,12 @@ AUTH_USER_MODEL = 'account_module.User'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'eshopprojectdb',
+        'USER': 'postgres',
+        'PASSWORD': 'A.t1376613',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
